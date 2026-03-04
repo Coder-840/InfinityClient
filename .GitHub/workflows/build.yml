@@ -1,12 +1,13 @@
-name: InfinityClient
-on: [workflow_dispatch] # Allows you to click a button to start the build
+name: Remote Build
+on: 
+  push:              # This forces it to run the moment you save the file
+  workflow_dispatch: # This adds the manual button for later
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Download Large Source
-        # Replace the URL below with your actual direct link
         run: curl -L -o source.zip "https://www.filemail.com/d/sissqhlrupvreqf"
 
       - name: Extract Source
